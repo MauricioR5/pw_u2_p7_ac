@@ -1,10 +1,12 @@
-console.log(Vue)
+const rootElement = document.getElementById('root');
 
-const app = Vue.createApp({
-    template: `
-        <h1> Hola Mundo</h1>
-        <p>Con Vue.JS</p>
-    `,
-})
+const element = React.createElement('div',
+    {
+        className: 'container',
+        style: { fontSize: '30px' }
+    },
+    React.createElement('div', null, 'Hola mundo'),
+    React.createElement('div', { style: { fontSize: '20px' } }, 'desde React')
+);
 
-app.mount('#myApp')
+ReactDOM.render(element, rootElement);
