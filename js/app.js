@@ -1,12 +1,17 @@
-const rootElement = document.getElementById('root');
-
-const element = React.createElement('div',
-    {
-        className: 'container',
-        style: { fontSize: '30px' }
-    },
-    React.createElement('div', null, 'Hola mundo'),
-    React.createElement('div', { style: { fontSize: '20px' } }, 'desde React')
-);
-
-ReactDOM.render(element, rootElement);
+(function (ng) {
+    const { NgModule, Component, enableProdMode } = ng.core;
+    const { BrowserModule } = ng.platformBrowser;
+    enableProdMode();
+    @Component({
+        selector: 'app-root',
+        template: '<h1 >Hola Mundo</h1>'
+    })
+    class AppComponent { }
+    @NgModule({
+        declarations: [AppComponent],
+        imports: [BrowserModule],
+        bootstrap: [AppComponent]
+    })
+    class AppModule { }
+    ng.platformBrowserDynamic.platformBrowserDynamic().bootstrapModule(AppModule);
+})(window.ng);
